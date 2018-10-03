@@ -19,3 +19,6 @@
 
     # To start a slave
     docker run --rm docker-spark slave
+
+    # To start a culster
+    docker-compose up

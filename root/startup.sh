@@ -1,14 +1,12 @@
-#! /bin/bash
+#!/bin/bash
 
-role="$1" || master
-
-echo $role
+role=${1:-master}
 
 if [ "$role" = master ]; then
-    echo "Starting Spark master"
+    echo "Starting Spark master!"
     /opt/spark/sbin/start-master.sh
 elif [ "$role" = slave ]; then
-    echo "Starting Spark slave"
+    echo "Starting Spark slave!"
     /opt/spark/sbin/start-slave.sh spark://spark-master:7077
 else
   echo "Value $role is unknown!!!"
