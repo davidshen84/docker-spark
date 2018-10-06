@@ -2,7 +2,7 @@ version: "3"
 services:
   spark-master:
     build: .
-    image: docker-spark:master
+    image: docker-spark:latest
     ports:
       - "7077:7077"
       - "8080:8080"
@@ -12,11 +12,13 @@ services:
 
   spark-slave:
     build: .
-    image: docker-spark:slave
+    image: docker-spark:latest
     ports:
       - "8081:8081"
     networks:
       - spark
+    depends_on:
+      - spark-master
     command: slave
 
 networks:
